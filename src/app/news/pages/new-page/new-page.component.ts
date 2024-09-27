@@ -24,11 +24,13 @@ export class NewPageComponent implements OnInit {
       .pipe(
         switchMap(({ id }) => this.newsService.getNewById(id)),
       )
-      .subscribe(newsItem => {  // Cambié "new" a "newsItem"
+      .subscribe(newsItem => {
 
-        if (!newsItem) return this.router.navigate(['/news']);  // Usando "newsItem"
+        if (!newsItem) return this.router.navigate(['/news']);
 
-        this.newsItem = newsItem;  // Asignación a "newsItem"
+        newsItem.date = newsItem.date.split('T')[0];
+        
+        this.newsItem = newsItem;
         return;
       })
   }

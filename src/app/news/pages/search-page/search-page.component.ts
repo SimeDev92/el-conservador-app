@@ -5,6 +5,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 import { NewsService } from '../../services/news.service';
 import { New } from '../../interfaces/news.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-page',
@@ -18,31 +19,42 @@ export class SearchPageComponent {
   public news: New[] = [];
   public selectedNew?: New;
 
-  constructor( private newsService: NewsService ){}
+  constructor(
+    private newsService: NewsService,
+    private router: Router
+
+  ){
+    this.searchInput.valueChanges.subscribe(query => {
+      this.onSearch(query!);
+    });
+  }
 
   onInput(event: any) {
     // Por ahora no hace nada
   }
-  // searchNew() {
-  //   const value: string = this.searchInput.value || '';
+  // Método para ejecutar la búsqueda
+  onSearch(query: string) {
+    if (query.trim().length === 0) {
+      this.news = [];
+      return;
+    }
 
-  //   this.newsService.getSuggestions( value )
-  //     .subscribe( news => this.news = news );
-  // }
+    this.newsService.searchNews(query)
+      .subscribe(news => this.news = news);
+  }
 
+  // Método para manejar la selección de una noticia
+  onSelectedOption(event: MatAutocompleteSelectedEvent): void {  // Usa MatAutocompleteSelectedEvent
+    const selectedNews: New = event.option.value; // El valor contiene el objeto completo de la noticia
 
-  // onSelectedOption( event: MatAutocompleteSelectedEvent ): void {
-  //   if ( !event.option.value ) {
-  //     this.selectedHero = undefined;
-  //     return;
-  //   }
+    if (!selectedNews) {
+      this.selectedNew = undefined;
+      return;
+    }
 
-  //   const new: New = event.option.value;
-  //   this.searchInput.setValue( new.title );
-
-  //   this.selectedNew = new;
-
-  // }
-
+    this.selectedNew = selectedNews;
+    // Redirigir a la ruta de detalles con el id de la noticia
+    this.router.navigate([`/news/${selectedNews._id}`]);
+  }
 
 }

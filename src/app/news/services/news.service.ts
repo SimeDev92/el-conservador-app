@@ -25,9 +25,11 @@ export class NewsService {
       );
   }
 
-  // getSuggestions( query: string ): Observable<New[]> {
-  //   return this.http.get<New[]>(`${ this.baseUrl }/news?q=${ query }&_limit=6`);
-  // }
-
+  searchNews(query: string): Observable<New[]> {
+    return this.http.get<New[]>(`${this.baseUrl}/news/search?query=${query}`)
+      .pipe(
+        catchError(error => of([])) // Manejo de errores retornando un array vacío si falla
+      );
+  }
 
 }

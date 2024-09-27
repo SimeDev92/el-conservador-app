@@ -8,29 +8,22 @@
       type="text"
       matInput
       [formControl]="searchInput"
-      (input)="onInput($event)"
       [matAutocomplete]="auto"
     />
 
-    <mat-autocomplete autoActiveFirstOption
-      #auto="matAutocomplete"
-      (optionSelected)="( $event )"
-      >
-      <mat-option *ngFor="let new of news" [value]="new">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <!-- <mat-option *ngFor="let new of news" [value]="new" (optionSelected)="onSelectedOption($event)">
         {{ new.title }}
-      </mat-option>
+      </mat-option> -->
 
-      <mat-option>
-        <!-- *ngIf="news.length === 0 && searchInput.value && searchInput.value.length > 0"
-        value=""> -->
-        No se encontró nada con el término {{ searchInput.value }}
+
+
+      <mat-option *ngIf="news.length === 0 && searchInput.value && searchInput.value.length > 0">
+        No se encontraron resultados con el término {{ searchInput.value }}
       </mat-option>
     </mat-autocomplete>
-
   </mat-form-field>
 
-
-  {{ selectedNew | json }}
-
+  <pre>{{ selectedNew | json }}</pre>
 
 </div>
