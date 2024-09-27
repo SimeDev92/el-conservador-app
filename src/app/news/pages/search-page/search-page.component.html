@@ -1,29 +1,29 @@
 <div class="flex flex-column p-2">
-
   <h3>Buscador</h3>
 
+  <!-- Formulario con campo de búsqueda -->
   <mat-form-field>
     <mat-label>Buscador de Noticias</mat-label>
     <input
       type="text"
       matInput
       [formControl]="searchInput"
-      [matAutocomplete]="auto"
+      [matAutocomplete]="auto" 
     />
 
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <!-- <mat-option *ngFor="let new of news" [value]="new" (optionSelected)="onSelectedOption($event)">
-        {{ new.title }}
-      </mat-option> -->
+    <!-- Panel de autocomplete con displayWith -->
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelectedOption($event)" [displayWith]="displayFn">
+      <mat-option *ngFor="let new of news" [value]="new">
+        {{ new.title }} <!-- Mostrar el título de cada noticia -->
+      </mat-option>
 
-
-
+      <!-- Mostrar mensaje si no hay resultados -->
       <mat-option *ngIf="news.length === 0 && searchInput.value && searchInput.value.length > 0">
-        No se encontraron resultados con el término {{ searchInput.value }}
+        No se encontraron resultados con el término "{{ searchInput.value }}"
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
 
+  <!-- Mostrar la noticia seleccionada en formato JSON -->
   <pre>{{ selectedNew | json }}</pre>
-
 </div>

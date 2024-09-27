@@ -14,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'search', component: SearchPageComponent },
       { path: 'list', component: ListPageComponent },
+      { path: 'category/:category', component: ListPageComponent },  // Nueva ruta para categorías
       { path: ':id', component: NewPageComponent },
       { path: '**', redirectTo: 'list' },
     ]

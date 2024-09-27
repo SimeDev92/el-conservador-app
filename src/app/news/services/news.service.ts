@@ -32,4 +32,7 @@ export class NewsService {
       );
   }
 
+  getNewsByCategory(category: string): Observable<New[]> {
+    return this.http.get<New[]>(`${this.baseUrl}/news/category/${category}`);
+  }
 }

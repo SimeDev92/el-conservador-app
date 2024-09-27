@@ -10,6 +10,7 @@
     </mat-toolbar>
 
     <mat-nav-list>
+      <!-- Sidebar items, incluyendo las categorías -->
       <mat-list-item
         *ngFor="let item of sidebarItems"
         [routerLink]="item.url"
@@ -23,17 +24,18 @@
 
   </mat-sidenav>
 
-  <mat-toolbar color="primary">
+  <mat-toolbar color="primary" class="flex justify-content-between align-items-center">
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
 
-    <span class="spacer"></span>
+    <span class="flex-grow-1"></span>
 
-    <button mat-button color="accent">
+    <button mat-button color="accent" class="p-button-raised">
       Login
     </button>
   </mat-toolbar>
+
 
   <div class="container p-2">
     <router-outlet></router-outlet>

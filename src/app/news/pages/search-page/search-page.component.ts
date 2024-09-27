@@ -30,11 +30,10 @@ export class SearchPageComponent {
   }
 
   onInput(event: any) {
-    // Por ahora no hace nada
   }
-  // Método para ejecutar la búsqueda
+
   onSearch(query: string) {
-    if (query.trim().length === 0) {
+    if (query.trim().length < 3) {
       this.news = [];
       return;
     }
@@ -43,7 +42,6 @@ export class SearchPageComponent {
       .subscribe(news => this.news = news);
   }
 
-  // Método para manejar la selección de una noticia
   onSelectedOption(event: MatAutocompleteSelectedEvent): void {  // Usa MatAutocompleteSelectedEvent
     const selectedNews: New = event.option.value; // El valor contiene el objeto completo de la noticia
 
@@ -53,8 +51,11 @@ export class SearchPageComponent {
     }
 
     this.selectedNew = selectedNews;
-    // Redirigir a la ruta de detalles con el id de la noticia
     this.router.navigate([`/news/${selectedNews._id}`]);
+  }
+
+  displayFn(news: New): string {
+    return news ? news.title : '';
   }
 
 }
