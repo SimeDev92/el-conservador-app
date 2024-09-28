@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-layout-page',
   templateUrl: './layout-page.component.html',
-  styles: []
+  styleUrls: ['./layout-page.component.css']
 })
 export class LayoutPageComponent {
 
