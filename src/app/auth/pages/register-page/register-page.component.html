@@ -1,28 +1,28 @@
-
+<form [formGroup]="registerForm" (ngSubmit)="register()">
 <div class="flex flex-column">
 
   <span class="text-lg mb-4">Registro</span>
 
   <mat-form-field>
-    <mat-label>Usuario</mat-label>
-    <input type="text" matInput placeholder="Nombre de usuario">
+    <mat-label>Correo</mat-label>
+    <input type="text" matInput placeholder="Correo electrónico" formControlName="email">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Nombre</mat-label>
-    <input type="text" matInput placeholder="Nombre de usuario">
+    <input type="text" matInput placeholder="Nombre" formControlName="name">
   </mat-form-field>
 
 
   <mat-form-field>
     <mat-label>Apellidos</mat-label>
-    <input type="text" matInput placeholder="Nombre de usuario">
+    <input type="text" matInput placeholder="Apellido/s" formControlName="surname">
   </mat-form-field>
 
 
   <mat-form-field>
     <mat-label>Contraseña</mat-label>
-    <input type="password" matInput placeholder="Contraseña">
+    <input type="password" matInput placeholder="Contraseña" formControlName="password">
   </mat-form-field>
 
   <button mat-button mat-flat-button color="primary">
@@ -36,3 +36,4 @@
   </div>
 
 </div>
+</form>

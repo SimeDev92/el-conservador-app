@@ -4,7 +4,8 @@ export enum AuthStatus {
 
   cheking = 'cheking',
   authenticated = 'authenticated',
-  notAuthenticated = 'notAuthenticated'
+  notAuthenticated = 'notAuthenticated',
+   registered = 'registered'
 
 }
 

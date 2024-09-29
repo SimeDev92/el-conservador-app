@@ -18,10 +18,10 @@ export class LoginPageComponent {
   private router = inject( Router )
   public myForm: FormGroup = this.fb.group({
 
-    email: ['rosamelanofuerte@google.com', [ Validators.required, Validators.email ]],
-    password: ['123456', [ Validators.required, Validators.minLength(6) ]],
+    email: ['', [ Validators.required, Validators.email ]],
+    password: ['', [ Validators.required, Validators.minLength(6) ]],
 
-  })
+  });
 
   login(){
 
@@ -30,7 +30,13 @@ export class LoginPageComponent {
       .subscribe({
         next: () => this.router.navigateByUrl('/dashboard'),
         error: (message) => {
-          Swal.fire('Error', message, 'error')
+          Swal.fire({
+            title: 'Error',
+            text: message,
+            icon: 'error',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#007BFF',
+         });
         }
       })
   }

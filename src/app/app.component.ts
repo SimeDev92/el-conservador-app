@@ -2,7 +2,6 @@ import { Component, computed, effect, inject } from '@angular/core';
 import { AuthService } from './auth/services/auth.service';
 import { AuthStatus } from './auth/interfaces';
 import { Router } from '@angular/router';
-import { retry } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -36,6 +35,9 @@ export class AppComponent {
       case AuthStatus.notAuthenticated:
         this.router.navigateByUrl('/news/list'); // '/news/list' /auth/login'
         return;
+        case AuthStatus.registered:
+          this.router.navigateByUrl('/auth/login');
+          return;
     }
 
 
