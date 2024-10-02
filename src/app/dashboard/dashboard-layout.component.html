@@ -1,24 +1,82 @@
-<h1>Dashboard</h1>
+<div class="dashboard-container p-4">
+  <mat-card class="mb-4">
+    <mat-card-header>
+      <mat-card-title>
+        <h1>Dashboard</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>Bienvenido, {{ user()?.name }}</h3>
+      <p>Email: {{ user()?.email }}</p>
+    </mat-card-content>
+  </mat-card>
 
-<hr>
+  <div class="grid">
+    <div class="col-12 md:col-6 lg:col-4">
+      <mat-card class="h-full">
+        <mat-card-header>
+          <mat-card-title>Paquetes Activos</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item>
+              <mat-icon matListItemIcon>check_circle</mat-icon>
+              <span matListItemTitle>Paquete Básico</span>
+              <span matListItemLine>5 publicaciones/mes</span>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              <mat-icon matListItemIcon>access_time</mat-icon>
+              <span matListItemTitle>Paquete Premium (Prueba)</span>
+              <span matListItemLine>3 días restantes</span>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary">Ver todos los paquetes</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
 
-<!-- Mostrar información del usuario -->
-<h3>Usuario</h3>
-<pre>{{ user() | json }}</pre>
+    <div class="col-12 md:col-6 lg:col-4">
+      <mat-card class="h-full">
+        <mat-card-header>
+          <mat-card-title>Estadísticas</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Noticias publicadas: 12</p>
+          <p>Vistas totales: 1,234</p>
+          <p>Comentarios: 56</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
 
-<br>
-
-<!-- Barra de navegación con botones para navegar -->
-<div class="dashboard-actions">
-  <!-- Botón para ir al inicio -->
-  <button mat-flat-button color="primary" routerLink="/news/list">
-    <mat-icon>home</mat-icon>
-    Ir al Inicio
-  </button>
-
-  <!-- Botón para cerrar sesión -->
-  <button mat-flat-button color="warn" (click)="onLogout()">
-    <mat-icon>logout</mat-icon>
-    Cerrar Sesión
-  </button>
+    <div class="col-12 md:col-6 lg:col-4">
+      <mat-card class="h-full">
+        <mat-card-header>
+          <mat-card-title>Acciones Rápidas</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <button mat-raised-button color="primary" class="mb-2 w-full">
+            <mat-icon>add</mat-icon> Nueva Noticia
+          </button>
+          <button mat-raised-button color="accent" class="mb-2 w-full">
+            <mat-icon>edit</mat-icon> Editar Perfil
+          </button>
+          <button mat-raised-button color="warn" class="mb-2 w-full" (click)="onLogout()">
+            <mat-icon>logout</mat-icon> Cerrar Sesión
+          </button>
+          <button mat-raised-button color="basic" class="mb-2 w-full" routerLink="/news/list">
+            <mat-icon>home</mat-icon> Ir al Inicio
+          </button>
+          <button mat-raised-button color="primary" class="mb-2 w-full">
+            <mat-icon>notifications</mat-icon> Mis Notificaciones
+          </button>
+          <button mat-raised-button color="accent" class="w-full">
+            <mat-icon>history</mat-icon> Historial de Publicaciones
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>

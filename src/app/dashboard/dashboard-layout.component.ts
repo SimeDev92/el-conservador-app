@@ -4,17 +4,13 @@ import { AuthService } from '../auth/services/auth.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard-layout.component.html',
-  styles: [
-
-  ]
+  styleUrls: ['./dashboard-layout.component.css']
 })
 export class DashboardLayoutComponent {
+  private authService = inject(AuthService);
+  public user = computed(() => this.authService.currentUser());
 
-  private authservice = inject( AuthService);
-  public user = computed(() => this.authservice.currentUser());
-
-
-  onLogout(){
-    this.authservice.logout();
+  onLogout() {
+    this.authService.logout();
   }
 }

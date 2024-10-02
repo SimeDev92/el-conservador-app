@@ -1,0 +1,40 @@
+.footer {
+  background-color: #131414;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-media {
+  display: flex;
+  gap: 15px;
+}
+
+.social-media mat-icon {
+  color: white;
+  font-size: 24px;
+}
+
+.footer-bottom {
+  margin-top: 10px;
+}

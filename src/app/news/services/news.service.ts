@@ -35,4 +35,14 @@ export class NewsService {
   getNewsByCategory(category: string): Observable<New[]> {
     return this.http.get<New[]>(`${this.baseUrl}/news/category/${category}`);
   }
+
+  getNewsByDate(date: string): Observable<New[]> {
+    return this.http.get<New[]>(`${this.baseUrl}/news/date/${date}`)
+      .pipe(
+        catchError(error => {
+          console.error('Error fetching news by date:', error);
+          return of([]);
+        })
+      );
+  }
 }

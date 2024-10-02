@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
-  styles: []
+  styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent {
 
@@ -23,6 +23,8 @@ export class RegisterPageComponent {
   });
 
   register() {
+    if (this.registerForm.invalid) return;
+
     const { email, password, name, surname } = this.registerForm.value;
     this.authService.register(email, password, name, surname)
       .subscribe({
@@ -34,7 +36,6 @@ export class RegisterPageComponent {
             confirmButtonText: 'OK',
             confirmButtonColor: '#007BFF',
           }).then(() => {
-
             this.router.navigateByUrl('auth/login');
           });
         },
@@ -45,10 +46,8 @@ export class RegisterPageComponent {
             icon: 'error',
             confirmButtonText: 'OK',
             confirmButtonColor: '#007BFF',
-         });
+          });
         }
       });
   }
-
-
 }

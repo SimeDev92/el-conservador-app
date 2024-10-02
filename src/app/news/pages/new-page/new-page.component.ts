@@ -7,7 +7,7 @@ import { NewsService } from '../../services/news.service';
 @Component({
   selector: 'app-new-page',
   templateUrl: './new-page.component.html',
-  styles: []
+  styleUrls: ['./new-page.css']
 })
 export class NewPageComponent implements OnInit {
 
@@ -29,7 +29,7 @@ export class NewPageComponent implements OnInit {
         if (!newsItem) return this.router.navigate(['/news']);
 
         newsItem.date = newsItem.date.split('T')[0];
-        
+
         this.newsItem = newsItem;
         return;
       })
@@ -39,4 +39,20 @@ export class NewPageComponent implements OnInit {
     this.router.navigateByUrl('/news');
   }
 
+  shareOnFacebook(): void {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+  }
+
+  shareOnTwitter(): void {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(this.newsItem?.title || '');
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+  }
+
+  shareOnWhatsApp(): void {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(this.newsItem?.title || '');
+    window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+  }
 }
