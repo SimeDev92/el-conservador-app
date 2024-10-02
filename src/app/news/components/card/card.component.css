@@ -1,0 +1,85 @@
+.news-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.news-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.news-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.news-subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: #555;
+}
+
+.news-content {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.news-tag {
+  background-color: #e0f7fa;
+  color: #00796b;
+  font-weight: bold;
+  margin-right: 8px;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+/* Nuevos estilos para las acciones de la tarjeta */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Estilos para el botón de compartir */
+.card-actions button[mat-fab] {
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-actions button[mat-fab]:hover {
+  transform: scale(1.1);
+}
+
+.news-tags {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.news-tags .tag {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 0.8em;
+  background-color: #f0f0f0;
+  color: #666;
+  border-radius: 16px;
+}
