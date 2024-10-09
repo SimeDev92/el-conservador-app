@@ -1,9 +1,10 @@
 .login-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Alineamos hacia arriba en lugar de al centro */
   height: 100vh;
   background-color: #f5f5f5;
+  padding-top: 50px; /* Añadimos un poco de espacio superior */
 }
 
 .login-card {
@@ -15,6 +16,11 @@
 .full-width {
   width: 100%;
   margin-bottom: 15px;
+}
+
+/* Añadimos un margen superior al primer campo del formulario para separar del título */
+mat-form-field:first-of-type {
+  margin-top: 20px;
 }
 
 .separator {

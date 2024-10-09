@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,7 +20,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
 
 @NgModule({
   exports: [
@@ -43,4 +44,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatNativeDateModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+    this.matIconRegistry.addSvgIcon(
+      'instagram',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/instagram.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'facebook',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/facebook.svg')
+    );
+  }
+}

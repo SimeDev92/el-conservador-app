@@ -50,4 +50,10 @@ export class RegisterPageComponent {
         }
       });
   }
+
+
+  registerWithGoogle() {
+    // Implementar lógica de inicio de sesión con Google aquí
+    console.log('Registro de usuario con Google');
+  }
 }

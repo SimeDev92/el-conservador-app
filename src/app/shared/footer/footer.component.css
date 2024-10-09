@@ -1,5 +1,5 @@
 .footer {
-  background-color: #131414;
+  background-color: #004080; /* Azul oscuro, mismo tono que la navbar */
   color: white;
   padding: 20px;
   text-align: center;
@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .footer-links {
@@ -19,6 +20,7 @@
 .footer-links a {
   color: white;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .footer-links a:hover {
@@ -30,11 +32,23 @@
   gap: 15px;
 }
 
+.social-media a {
+  display: flex;
+  align-items: center;
+}
+
 .social-media mat-icon {
   color: white;
   font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-media mat-icon:hover {
+  transform: scale(1.2); /* Animación para que los íconos crezcan un poco al pasar el mouse */
 }
 
 .footer-bottom {
   margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
