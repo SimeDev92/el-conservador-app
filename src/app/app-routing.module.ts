@@ -21,6 +21,14 @@ const routes: Routes = [
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardModule ),
   },
   {
+    path: 'donations',
+    loadChildren: () => import('./donations/donations.module').then(m => m.DonationsModule)
+  },
+  {
+    path: 'packages',
+    loadChildren: () => import('./packages/packages.module').then(m => m.PackagesModule)
+  },
+  {
     path: '404',
     component: Error404PageComponent,
   },

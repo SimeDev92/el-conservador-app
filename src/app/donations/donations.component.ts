@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-layout-page',
-  templateUrl: './layout-page.component.html',
-  styleUrls: ['./layout-page.component.css']
+  selector: 'app-donations',
+  templateUrl: './donations.component.html',
+  styleUrls: ['./donations.component.css']
 })
-export class LayoutPageComponent {
+export class DonationsComponent {
 
   public sidebarItems = [
     { label: 'Listado', icon: 'label', url: './list' },
@@ -18,11 +18,8 @@ export class LayoutPageComponent {
     { label: 'Cultura', icon: 'palette', url: './category/Culture' },
     { label: 'Deportes', icon: 'sports_soccer', url: './category/Sports' },
     { label: 'Opinión', icon: 'forum', url: './category/Opinion' },
-    { label: 'Publicar', icon: 'publish', url: '/packages' },
-    { label: 'Donar', icon: 'volunteer_activism', url: '/donations' }
-
+    { label: 'Publicar', icon: 'publish', url: '/packages' }
   ];
-
 
   constructor(private router: Router) {}
 
@@ -30,4 +27,11 @@ export class LayoutPageComponent {
     window.open(url, '_blank');
   }
 
+  processSingleDonation() {
+    console.log('Processing single donation');
+  }
+
+  processMonthlyDonation() {
+    console.log('Processing monthly donation');
+  }
 }

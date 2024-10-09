@@ -26,5 +26,8 @@ export class CardComponent implements OnInit {
   shareOnTwitter() {
     // Implementación pendiente
   }
+  copyLink(){
+    // Implementación pendiente
+  }
 
 }

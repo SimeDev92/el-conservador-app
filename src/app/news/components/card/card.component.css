@@ -5,13 +5,15 @@
   margin-bottom: 16px;
   text-decoration: none;
   display: block;
+  background-color: #ffffff; /* Fondo blanco para destacar la tarjeta */
 }
 
 .news-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Más pronunciado el efecto */
 }
 
+/* Imagen de la noticia */
 .news-image {
   width: 100%;
   height: auto;
@@ -20,34 +22,47 @@
   border-radius: 12px 12px 0 0;
 }
 
+/* Título y subtítulo */
 .news-title {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  color: #333;
+  color: #000000; /* Cambiado a negro */
 }
 
 .news-subtitle {
   font-size: 1rem;
   font-style: italic;
   color: #555;
+  margin-top: 8px; /* Añadido margen superior */
 }
 
+/* Contenido */
 .news-content {
-  font-size: 1rem;
-  color: #555;
+  font-size: 0.95rem;
+  color: #333;
   margin-bottom: 8px;
 }
 
-.news-tag {
-  background-color: #e0f7fa;
-  color: #00796b;
-  font-weight: bold;
-  margin-right: 8px;
-  border-radius: 4px;
-  padding: 4px 8px;
+/* Tags (etiquetas) */
+.news-tags {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* Nuevos estilos para las acciones de la tarjeta */
+.news-tags .tag {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 0.8em;
+  background-color: #FFC400; /* Amarillo de la bandera */
+  color: #333;
+  border-radius: 16px;
+}
+
+/* Acciones de la tarjeta */
 .card-actions {
   display: flex;
   justify-content: space-between;
@@ -59,27 +74,26 @@
   flex: 1;
 }
 
-/* Estilos para el botón de compartir */
+/* Botón de compartir (rojo) */
 .card-actions button[mat-fab] {
   transition: transform 0.2s ease-in-out;
+  background-color: #C60B1E; /* Rojo patriótico */
+  color: #ffffff;
 }
 
 .card-actions button[mat-fab]:hover {
+  background-color: #b50a1a;
   transform: scale(1.1);
 }
 
-.news-tags {
-  margin-top: 10px;
-  margin-bottom: 10px;
+/* Botón de Leer más (azul) */
+.card-actions button[mat-raised-button] {
+  background-color: #0066CC; /* Azul oscuro */
+  color: white;
 }
 
-.news-tags .tag {
-  display: inline-block;
-  padding: 4px 8px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  font-size: 0.8em;
-  background-color: #f0f0f0;
-  color: #666;
-  border-radius: 16px;
+.card-actions button[mat-raised-button]:hover {
+  background-color: #003366;
 }
+
+

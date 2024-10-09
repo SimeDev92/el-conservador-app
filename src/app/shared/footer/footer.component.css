@@ -1,5 +1,5 @@
 .footer {
-  background-color: #004080; /* Azul oscuro, mismo tono que la navbar */
+  background-color: #0066CC; /* Azul oscuro */
   color: white;
   padding: 20px;
   text-align: center;
@@ -7,20 +7,20 @@
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .footer-links {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
 }
 
 .footer-links a:hover {
@@ -28,27 +28,30 @@
 }
 
 .social-media {
+  margin-top: 15px; /* Añade un margen superior */
   display: flex;
   gap: 15px;
-}
-
-.social-media a {
-  display: flex;
-  align-items: center;
+  justify-content: center; /* Centra los iconos */
 }
 
 .social-media mat-icon {
   color: white;
   font-size: 24px;
-  transition: transform 0.3s ease;
-}
-
-.social-media mat-icon:hover {
-  transform: scale(1.2); /* Animación para que los íconos crezcan un poco al pasar el mouse */
 }
 
 .footer-bottom {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  opacity: 0.8;
+  margin-top: 20px;
+}
+
+/* Ajustes específicos para la vista móvil */
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    text-align: center;
+  }
 }

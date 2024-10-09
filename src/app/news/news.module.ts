@@ -29,6 +29,9 @@ import { NewPageComponent } from './pages/new-page/new-page.component';
     ReactiveFormsModule,
     NewsRoutingModule,
     MaterialModule,
+  ],
+  exports: [
+    LayoutPageComponent
   ]
 })
 export class NewsModule { }

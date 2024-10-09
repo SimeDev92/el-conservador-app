@@ -1,7 +1,7 @@
 <mat-card class="news-card" [routerLink]="['/news', new._id]">
   <mat-card-header>
     <mat-card-title class="news-title">{{ new.title }}</mat-card-title>
-    <mat-card-subtitle class="news-subtitle">{{ new.subtitle }}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="new.subtitle" class="news-subtitle">{{ new.subtitle }}</mat-card-subtitle>
   </mat-card-header>
 
   <img mat-card-image [src]="new.imgUrl" [alt]="new.tags" class="news-image">
@@ -29,10 +29,13 @@
         <mat-icon>whatsapp</mat-icon> WhatsApp
       </button>
       <button mat-menu-item (click)="shareOnFacebook()">
-        <mat-icon>facebook</mat-icon> Facebook
+        <mat-icon svgIcon="facebook"></mat-icon> Facebook
       </button>
       <button mat-menu-item (click)="shareOnTwitter()">
         <mat-icon>twitter</mat-icon> Twitter
+      </button>
+      <button mat-menu-item (click)="copyLink()">
+        <mat-icon>link</mat-icon> Copiar enlace
       </button>
     </mat-menu>
   </mat-card-actions>
