@@ -49,14 +49,16 @@
         <mat-icon svgIcon="instagram"></mat-icon>
       </button>
 
-      <button mat-icon-button (click)="openExternalLink('https://www.facebook.com')"> <!--Facebook e insta creados-->
+      <button mat-icon-button (click)="openExternalLink('https://www.facebook.com')">
         <mat-icon svgIcon="facebook"></mat-icon>
       </button>
     </div>
   </mat-toolbar>
 
   <!-- Contenido de la página -->
-  <div class="container p-2">
+  <main>
     <router-outlet></router-outlet>
-  </div>
+    <!-- <ng-content></ng-content> -->
+  </main>
+
 </mat-sidenav-container>

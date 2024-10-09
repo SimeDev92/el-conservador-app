@@ -4,17 +4,16 @@ import { PackagesPageComponent } from '../packages/pages/packages-page/packages-
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { PackagesRoutingModule } from './packages-routing.module';
-import { NewsModule } from '../news/news.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [PackagesPageComponent],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule,
     PackagesRoutingModule,
     MaterialModule,
-    NewsModule
-
   ]
 })
 export class PackagesModule { }

@@ -6,7 +6,6 @@ import { NewsRoutingModule } from './news.routing.module';
 
 import { MaterialModule } from '../material/material.module';
 
-import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { ListPageComponent } from './pages/list-page/list-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { CardComponent } from './components/card/card.component';
@@ -16,7 +15,6 @@ import { NewPageComponent } from './pages/new-page/new-page.component';
 
 @NgModule({
   declarations: [
-    LayoutPageComponent,
     ListPageComponent,
     NewPageComponent,
     SearchPageComponent,
@@ -30,8 +28,6 @@ import { NewPageComponent } from './pages/new-page/new-page.component';
     NewsRoutingModule,
     MaterialModule,
   ],
-  exports: [
-    LayoutPageComponent
-  ]
+
 })
 export class NewsModule { }

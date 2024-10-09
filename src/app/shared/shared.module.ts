@@ -4,11 +4,13 @@ import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from '../material/material.module';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LayoutPageComponent } from './layout-page/layout-page.component';
 
 
 
 @NgModule({
   declarations: [
+    LayoutPageComponent,
     Error404PageComponent,
     FooterComponent
   ],
@@ -19,6 +21,7 @@ import { RouterModule } from '@angular/router';
 
   ],
   exports: [
+    LayoutPageComponent,
     Error404PageComponent,
     FooterComponent
   ]
