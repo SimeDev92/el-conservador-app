@@ -1,36 +1,58 @@
-  <div class="container p-2">
-    <div class="donations-container">
-      <h1 class="patriotic-title">Apoya a El Conservador</h1>
-      <p class="patriotic-subtitle">Ayuda a El Conservador a seguir publicando contenido independiente y de calidad.</p>
+<div class="container p-2">
+  <div class="donations-container">
+    <h1 class="patriotic-title">Apoya a El Conservador</h1>
+    <p class="patriotic-subtitle">Ayuda a El Conservador a seguir publicando contenido independiente y de calidad.</p>
 
-      <mat-card class="content-value patriotic-card">
-        <h2>El valor de nuestro contenido</h2>
-        <p>Detrás de cada artículo, investigación y análisis hay un equipo de profesionales dedicados. Tu apoyo nos permite mantener nuestra independencia y continuar ofreciendo información rigurosa y relevante.</p>
-      </mat-card>
+    <mat-card class="content-value patriotic-card">
+      <h2>El valor de nuestro contenido</h2>
+      <p>Detrás de cada artículo, investigación y análisis hay un equipo de profesionales dedicados. Tu apoyo nos permite mantener nuestra independencia y continuar ofreciendo información rigurosa y relevante.</p>
+    </mat-card>
 
-      <mat-card class="donation-options patriotic-card">
-        <h2>Opciones de donación</h2>
-        <div class="flex justify-content-center">
-          <button mat-raised-button class="donation-btn" (click)="processSingleDonation()">Donación única</button>
-          <button mat-raised-button class="donation-btn" (click)="processMonthlyDonation()">Donación mensual</button>
-        </div>
-      </mat-card>
+    <mat-card class="donation-options patriotic-card">
+      <h2>Opciones de donación</h2>
+      <div class="donation-type-selection">
+        <label for="donationType">Selecciona el tipo de donación:</label>
+        <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="donationType">
+          <mat-button-toggle value="single">Donación única</mat-button-toggle>
+          <mat-button-toggle value="monthly">Donación mensual</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
 
-      <mat-card class="impact patriotic-card">
-        <h2>Tu impacto</h2>
-        <p>Gracias a las donaciones de lectores como tú, podemos:</p>
-        <ul class="patriotic-list">
-          <li>Mantener nuestra independencia editorial</li>
-          <li>Investigar temas de relevancia nacional</li>
-          <li>Ofrecer análisis profundos y objetivos</li>
-          <li>Dar voz a historias que otros medios ignoran</li>
-        </ul>
-      </mat-card>
+      <div *ngIf="donationType === 'single'" class="donation-amounts">
+        <h3>Elige la cantidad que deseas donar:</h3>
+        <mat-radio-group [(ngModel)]="selectedAmount">
+          <mat-radio-button *ngFor="let amount of singleDonationAmounts" [value]="amount">
+            {{ amount }}€
+          </mat-radio-button>
+        </mat-radio-group>
+        <button mat-raised-button class="donation-btn" (click)="processSingleDonation()">Donar ahora</button>
+      </div>
 
-      <mat-card class="gratitude patriotic-card">
-        <h2>Gracias por tu apoyo</h2>
-        <p>Cada donación, grande o pequeña, nos ayuda a seguir dando vida a esta plataforma y a mantener informada a nuestra sociedad.</p>
-      </mat-card>
-    </div>
+      <div *ngIf="donationType === 'monthly'" class="donation-amounts">
+        <h3>Elige un monto para la donación mensual:</h3>
+        <mat-radio-group [(ngModel)]="selectedAmount">
+          <mat-radio-button *ngFor="let amount of monthlyDonationAmounts" [value]="amount">
+            {{ amount }}€/mes
+          </mat-radio-button>
+        </mat-radio-group>
+        <button mat-raised-button class="donation-btn" (click)="processMonthlyDonation()">Donar mensualmente</button>
+      </div>
+    </mat-card>
+
+    <mat-card class="impact patriotic-card">
+      <h2>Tu impacto</h2>
+      <p>Gracias a las donaciones de lectores como tú, podemos:</p>
+      <ul class="patriotic-list">
+        <li><mat-icon>check</mat-icon> Mantener nuestra independencia editorial</li>
+        <li><mat-icon>check</mat-icon> Investigar temas de relevancia nacional</li>
+        <li><mat-icon>check</mat-icon> Ofrecer análisis profundos y objetivos</li>
+        <li><mat-icon>check</mat-icon> Dar voz a historias que otros medios ignoran</li>
+      </ul>
+    </mat-card>
+
+    <mat-card class="gratitude patriotic-card">
+      <h2>Gracias por tu apoyo</h2>
+      <p>Cada donación, grande o pequeña, nos ayuda a seguir dando vida a esta plataforma y a mantener informada a nuestra sociedad.</p>
+    </mat-card>
   </div>
-
+</div>

@@ -4,7 +4,8 @@
   border-radius: 12px;
   margin-bottom: 16px;
   text-decoration: none;
-  display: block;
+  display: flex; /* Cambiado a flex para alinear elementos internos */
+  flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
   background-color: #ffffff; /* Fondo blanco para destacar la tarjeta */
 }
 
@@ -15,85 +16,75 @@
 
 /* Imagen de la noticia */
 .news-image {
+  margin-top: 1rem;
   width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 12px 12px 0 0;
+  height: auto; /* Mantiene la proporción */
+  max-height: 300px; /* Altura máxima para mantener proporciones */
+  object-fit: cover; /* Ajusta la imagen sin recortarla */
 }
 
 /* Título y subtítulo */
 .news-title {
   font-size: 1.4rem;
   font-weight: bold;
-  color: #000000; /* Cambiado a negro */
-}
-
-.news-subtitle {
-  font-size: 1rem;
-  font-style: italic;
-  color: #555;
-  margin-top: 8px; /* Añadido margen superior */
 }
 
 /* Contenido */
 .news-content {
-  font-size: 0.95rem;
-  color: #333;
-  margin-bottom: 8px;
+   font-size: 0.95rem;
+   margin-bottom: auto; /* Permite que el contenido ocupe espacio disponible */
 }
 
 /* Tags (etiquetas) */
 .news-tags {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-wrap: wrap;
+   margin-top: 1rem; /* Empuja hacia abajo para ocupar espacio disponible */
+   margin-bottom: 1rem;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center; /* Centra las etiquetas horizontalmente */
 }
 
 .news-tags .tag {
-  display: inline-block;
-  padding: 4px 12px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  font-size: 0.8em;
-  background-color: #FFC400; /* Amarillo de la bandera */
-  color: #333;
-  border-radius: 16px;
+   display: inline-block;
+   padding: 4px 12px;
+   margin-right: 8px;
+   margin-bottom: 8px;
+   font-size: 0.7em; /* Ajustar tamaño de fuente a un punto más pequeño */
+   background-color: #FFC400; /* Amarillo de la bandera */
+   color: #333;
+   border-radius: 16px;
 }
 
 /* Acciones de la tarjeta */
 .card-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 16px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 8px; /* Ajustar padding si es necesario */
 }
 
 .spacer {
-  flex: 1;
+   flex-grow:1; /* Espaciador para empujar elementos hacia los extremos */
 }
 
 /* Botón de compartir (rojo) */
 .card-actions button[mat-fab] {
-  transition: transform 0.2s ease-in-out;
-  background-color: #C60B1E; /* Rojo patriótico */
-  color: #ffffff;
+   transition: transform 0.2s ease-in-out;
+   background-color: #C60B1E; /* Rojo patriótico */
+   color: #ffffff;
 }
 
 .card-actions button[mat-fab]:hover {
-  background-color: #b50a1a;
-  transform: scale(1.1);
+   background-color: #b50a1a;
+   transform: scale(1.1);
 }
 
 /* Botón de Leer más (azul) */
 .card-actions button[mat-raised-button] {
-  background-color: #0066CC; /* Azul oscuro */
-  color: white;
+   background-color: #0066CC; /* Azul oscuro */
+   color: white;
 }
 
 .card-actions button[mat-raised-button]:hover {
-  background-color: #003366;
+   background-color: #003366;
 }
-
-

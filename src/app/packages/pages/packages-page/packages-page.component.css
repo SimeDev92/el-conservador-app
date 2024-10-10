@@ -9,6 +9,7 @@
 .packages-title {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
+  text-align: center;
   color: #C60B1E;
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);

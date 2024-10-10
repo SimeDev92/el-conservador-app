@@ -1,7 +1,7 @@
 <mat-card class="news-card" [routerLink]="['/news', new._id]">
   <mat-card-header>
     <mat-card-title class="news-title">{{ new.title }}</mat-card-title>
-    <mat-card-subtitle *ngIf="new.subtitle" class="news-subtitle">{{ new.subtitle }}</mat-card-subtitle>
+    <!-- Eliminado el subtítulo -->
   </mat-card-header>
 
   <img mat-card-image [src]="new.imgUrl" [alt]="new.tags" class="news-image">
